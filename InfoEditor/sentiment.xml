@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Ontology name="Sentiment">
+<item annotation="true" color="red" name="Happy" value="hap" word="glad Smile overjoyed"/>
+<item annotation="true" color="green" name="Sad" value="sad" word="frown down sorrowful"/>
+<item annotation="true" color="blue" name="Confused" value="con" word="baffled dazed perplexed befuddled video"/>
+<item annotation="true" color="blue" name="Angry" value="ang" word="enraged irate cross"/>
+
+
+
+
+
+<item annotation="true" color="gray" name="Test" value="tst"/>
+</Ontology>

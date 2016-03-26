@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Ontology name="NER">
+<item annotation="true" color="red" name="Person" value="per"/>
+
+<item annotation="true" color="blue" name="Organization" value="org"/>
+<item annotation="true" color="yellow" name="Time" value="time"/>
+
+</Ontology>
