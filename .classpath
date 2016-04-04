@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="InfoEditor/src"/>
+	<classpathentry kind="lib" path="InfoEditor/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="InfoEditor/jOpenDocument-1.4rc1.jar"/>
+	<classpathentry kind="lib" path="InfoEditor/jortho.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
