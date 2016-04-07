@@ -550,14 +550,17 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
       // Add the buttons to menuBar2
 	   BOLD = new JButton("B");
+	   BOLD.setToolTipText("Bold");
 	   BOLD.addActionListener(new FontListener());
 	   BOLD.addActionListener(new StyledEditorKit.BoldAction());
 	   
 	   ITALIC = new JButton("I");
+	   ITALIC.setToolTipText("Italic");
 	   ITALIC.addActionListener(new FontListener());
 	   ITALIC.addActionListener(new StyledEditorKit.ItalicAction());
 	   
 	   UNDERLINE = new JButton("U");
+	   UNDERLINE.setToolTipText("Underline");
 	   UNDERLINE.addActionListener(new FontListener()); 
 	   UNDERLINE.addActionListener(new StyledEditorKit.UnderlineAction());
 	   
@@ -573,25 +576,29 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	   
 	   SIZE = new JButton();
 	   SIZE.setIcon(SIZEicon);
+	   SIZE.setToolTipText("Size");
 	   SIZE.addActionListener(new FontListener());
 	   
 	   SIZEUP = new JButton();
 	   SIZEUP.setIcon(SIZEUPicon);
+	   SIZEUP.setToolTipText("Size Up");
 	   SIZEUP.addActionListener(new FontListener());
 	   
-	   ALright = new JButton();
-	   ALright.setIcon(ALrightIcon);
-	   ALright.addActionListener(new FontListener());
-	   
 	   ALleft = new JButton();
+	   ALleft.setToolTipText("Align Left");
 	   ALleft.setIcon(ALleftIcon);
 	   ALleft.addActionListener(new FontListener());
 	   
 	   ALcenter = new JButton();
+	   ALcenter.setToolTipText("Align Center");
 	   ALcenter.setIcon(ALcenterIcon);
 	   ALcenter.addActionListener(new FontListener());
 	   
-
+	   ALright = new JButton();
+	   ALright.setToolTipText("Align Right");
+	   ALright.setIcon(ALrightIcon);
+	   ALright.addActionListener(new FontListener());
+	   
 	   COLORCHG = new JComboBox<String>();
 	   COLORCHG.addItem("Black");
 	   COLORCHG.addItem("Blue");
@@ -623,37 +630,47 @@ public void applyAnnotation(String value,Color c, int start, int end){
    private void buildViewMenu(){
 	      // Create the Italic menu item.
 	      showLeftList = new JCheckBoxMenuItem("Show Ontology");
+	      showLeftList.setMnemonic(KeyEvent.VK_S);
 	      showLeftList.setSelected(true);
 	      showLeftList.addActionListener(new ListListener());
 	      
 	      wordWrap = new JCheckBoxMenuItem("Word Wrap");
+	      wordWrap.setMnemonic(KeyEvent.VK_W);
 	      wordWrap.setSelected(false);
 	      wordWrap.addActionListener(new TextFormatListener());
 	      
 	      showAnnotations = new JCheckBoxMenuItem("Show Annotations");
+	      showAnnotations.setMnemonic(KeyEvent.VK_S);
 	      showAnnotations.setSelected(true);
 	      showAnnotations.addActionListener(new TextFormatListener());
 	      
 	      
 	      //Create Theme menu options
 	      themeMenu = new JMenu("Change Theme");
+	      themeMenu.setMnemonic(KeyEvent.VK_C);
 	      
 	      midnightTheme = new JMenuItem("Midnight");
+	      midnightTheme.setMnemonic(KeyEvent.VK_M);
 	      midnightTheme.addActionListener(new ListListener());
 	      
 	      skyTheme  = new JMenuItem("Sky");
+	      skyTheme.setMnemonic(KeyEvent.VK_S);
 	      skyTheme.addActionListener(new ListListener());
 	      
 	      greenTheme = new JMenuItem("Spring");
+	      greenTheme.setMnemonic(KeyEvent.VK_S);
 	      greenTheme.addActionListener(new ListListener());
 	      
 	      fireTheme = new JMenuItem("Fire");
+	      fireTheme.setMnemonic(KeyEvent.VK_F);
 	      fireTheme.addActionListener(new ListListener());
 
 	      swampTheme = new JMenuItem("Swamp");
+	      swampTheme.setMnemonic(KeyEvent.VK_S);
 	      swampTheme.addActionListener(new ListListener());
 	      
 	      defaultTheme = new JMenuItem("Default");
+	      defaultTheme.setMnemonic(KeyEvent.VK_D);
 	      defaultTheme.addActionListener(new ListListener());
 
 	      
@@ -688,7 +705,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
       
       // Create the New Ontology menu item.
       newOntology = new JMenuItem("New Ontology");
-      newOntology.setMnemonic(KeyEvent.VK_E);
+      newOntology.setMnemonic(KeyEvent.VK_N);
       newOntology.addActionListener(new NewListener());
 
       // Create the Open menu item.
@@ -698,7 +715,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
       // Create the Open menu item.
       openList = new JMenuItem("Open Ontology");
-      openList.setMnemonic(KeyEvent.VK_L);
+      openList.setMnemonic(KeyEvent.VK_O);
       openList.addActionListener(new OpenListListener());
       
       // Create the Print menu item.
@@ -714,17 +731,17 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
       // Create the Save As menu item.
       saveAsItem = new JMenuItem("Save As");
-      saveAsItem.setMnemonic(KeyEvent.VK_A);
+      saveAsItem.setMnemonic(KeyEvent.VK_S);
       saveAsItem.addActionListener(new SaveListener());
 
       // Create the Exit menu item.
       exitItem = new JMenuItem("Exit");
-      exitItem.setMnemonic(KeyEvent.VK_X);
+      exitItem.setMnemonic(KeyEvent.VK_E);
       exitItem.addActionListener(new ExitListener());
 
       // Create a menu for the items we just created.
       fileMenu = new JMenu("File");
-      fileMenu.setMnemonic('F');
+      fileMenu.setMnemonic(KeyEvent.VK_F);
 
       // Add the items and some separator bars to the menu.
       fileMenu.add(newItem);
@@ -750,36 +767,45 @@ public void applyAnnotation(String value,Color c, int start, int end){
    {
 
 	   fontItem = new JMenu("Font");
+	   fontItem.setMnemonic(KeyEvent.VK_F);
       // Create the Monospaced menu item.
       monoItem = new JMenuItem("Monospaced");
+      monoItem.setMnemonic(KeyEvent.VK_M);
       monoItem.addActionListener(new FontListener());
       monoItem.addActionListener(new StyledEditorKit.FontFamilyAction("Monospaced", "Monospaced")); //Arland
       // Create the Serif menu item.
       serifItem = new JMenuItem("Serif");
+      serifItem.setMnemonic(KeyEvent.VK_S);
       serifItem.addActionListener(new FontListener());
       serifItem.addActionListener(new StyledEditorKit.FontFamilyAction("Serif", "Serif")); //Arland
       // Create the SansSerif menu item.
       sansSerifItem = new JMenuItem("SansSerif");
+      sansSerifItem.setMnemonic(KeyEvent.VK_S);
       sansSerifItem.addActionListener(new FontListener());
       sansSerifItem.addActionListener(new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif")); //Arland
       // Create the Comic Sans MS menu item.
       comicSansMSItem = new JMenuItem("Comic Sans MS");
+      comicSansMSItem.setMnemonic(KeyEvent.VK_C);
       comicSansMSItem.addActionListener(new FontListener());
       comicSansMSItem.addActionListener(new StyledEditorKit.FontFamilyAction("Comic Sans MS", "Comic Sans MS")); //Arland
       // Create the Times New Roman menu item.
       timesNewRomanItem = new JMenuItem("Times New Roman");
+      timesNewRomanItem.setMnemonic(KeyEvent.VK_T);
       timesNewRomanItem.addActionListener(new FontListener());
       timesNewRomanItem.addActionListener(new StyledEditorKit.FontFamilyAction("Times New Roman", "Times New Roman")); //Arland
       // Create the Helvetica menu item.
       helveticaItem = new JMenuItem("Helvetica");
+      helveticaItem.setMnemonic(KeyEvent.VK_H);
       helveticaItem.addActionListener(new FontListener());
       helveticaItem.addActionListener(new StyledEditorKit.FontFamilyAction("Helvetica", "Helvetica")); //Arland
       // Create the Arial menu item.
       arialItem = new JMenuItem("Arial");
+      arialItem.setMnemonic(KeyEvent.VK_A);
       arialItem.addActionListener(new FontListener());
       arialItem.addActionListener(new StyledEditorKit.FontFamilyAction("Arial", "Arial")); //Arland
       // Create the Snap ITC menu item.
       snapITCItem = new JMenuItem("Snap ITC");
+      snapITCItem.setMnemonic(KeyEvent.VK_S);
       snapITCItem.addActionListener(new FontListener());
       snapITCItem.addActionListener(new StyledEditorKit.FontFamilyAction("Snap ITC", "Snap ITC")); //Arland
       
@@ -795,26 +821,31 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
       // Create the Italic menu item.
       italicItem = new JMenuItem("Italic");
+      italicItem.setMnemonic(KeyEvent.VK_I);
       italicItem.addActionListener(new FontListener());
       italicItem.addActionListener(new StyledEditorKit.ItalicAction()); //added by Sean and Arland
 
       // Create the Bold menu item.
       boldItem = new JMenuItem("Bold");
+      boldItem.setMnemonic(KeyEvent.VK_B);
       boldItem.addActionListener(new FontListener());
       boldItem.addActionListener(new StyledEditorKit.BoldAction()); //added by Sean and Arland
       
       // Create the Underline menu item
       underlineItem = new JMenuItem("Underline"); //added by Sean and Arland
+      underlineItem.setMnemonic(KeyEvent.VK_U);
       underlineItem.addActionListener(new FontListener()); //added by Sean and Arland
       underlineItem.addActionListener(new StyledEditorKit.UnderlineAction()); //added by Sean and Arland
       
       // Create the Indent menu items
       indentItem = new JMenuItem("Indent");
+      indentItem.setMnemonic(KeyEvent.VK_I);
       indentItem.addActionListener(new FontListener());
       
       
       // Create the Size menu items
       sizeItem = new JMenu("Size");   
+      sizeItem.setMnemonic(KeyEvent.VK_S);
       size8 = new JMenuItem("8");
       size8.addActionListener((new StyledEditorKit.FontSizeAction("8", 8))); //added by Sean and Arland
       size9 = new JMenuItem("9");
@@ -846,14 +877,18 @@ public void applyAnnotation(String value,Color c, int start, int end){
       
       //Alignment Menu
       alignmentItem = new JMenu("Alignment"); 
+      alignmentItem.setMnemonic(KeyEvent.VK_A);
       
       leftAlign = new JMenuItem("Left"); 
+      leftAlign.setMnemonic(KeyEvent.VK_L);
       leftAlign.addActionListener(new FontListener());
       
-      centerAlign = new JMenuItem("Center"); 
+      centerAlign = new JMenuItem("Center");
+      centerAlign.setMnemonic(KeyEvent.VK_C);
       centerAlign.addActionListener(new FontListener());
       
       rightAlign = new JMenuItem("Right"); 
+      rightAlign.setMnemonic(KeyEvent.VK_R);
       rightAlign.addActionListener(new FontListener());
       
       alignmentItem.add(leftAlign);
@@ -863,35 +898,46 @@ public void applyAnnotation(String value,Color c, int start, int end){
       //Color Menu
       
       colorItem = new JMenu("Color");
+      colorItem.setMnemonic(KeyEvent.VK_C);
       
       blackItem = new JMenuItem("Black");
+      blackItem.setMnemonic(KeyEvent.VK_B);
       blackItem.addActionListener(new FontListener());
       
       blueItem = new JMenuItem("Blue"); 
+      blueItem.setMnemonic(KeyEvent.VK_B);
       blueItem.addActionListener(new FontListener());
       
       redItem = new JMenuItem("Red");
+      redItem.setMnemonic(KeyEvent.VK_R);
       redItem.addActionListener(new FontListener());
       
       orangeItem = new JMenuItem("Orange");
+      orangeItem.setMnemonic(KeyEvent.VK_O);
       orangeItem.addActionListener(new FontListener());
       
       pinkItem = new JMenuItem("Pink");
+      pinkItem.setMnemonic(KeyEvent.VK_P);
       pinkItem.addActionListener(new FontListener());
       
       cyanItem = new JMenuItem("Cyan");
+      cyanItem.setMnemonic(KeyEvent.VK_C);
       cyanItem.addActionListener(new FontListener());
       
       yellowItem = new JMenuItem("Yellow");
+      yellowItem.setMnemonic(KeyEvent.VK_Y);
       yellowItem.addActionListener(new FontListener());
       
       grayItem = new JMenuItem("Gray");
+      grayItem.setMnemonic(KeyEvent.VK_G);
       grayItem.addActionListener(new FontListener());
       
       greenItem = new JMenuItem("Green");
+      greenItem.setMnemonic(KeyEvent.VK_G);
       greenItem.addActionListener(new FontListener());
       
       magentaItem = new JMenuItem("Magenta");
+      magentaItem.setMnemonic(KeyEvent.VK_M);
       magentaItem.addActionListener(new FontListener());
       
       colorItem.add(blackItem);
@@ -934,7 +980,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
        cutItem = new JMenuItem(new DefaultEditorKit.CutAction());
        cutItem.setText("Cut");
-       cutItem.setMnemonic(KeyEvent.VK_T);
+       cutItem.setMnemonic(KeyEvent.VK_C);
        editMenu.add(cutItem);
 
        copyItem = new JMenuItem(new DefaultEditorKit.CopyAction());
@@ -958,13 +1004,13 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
       // Create the Open menu item.
       imageToolsItem = new JMenuItem("Select Part of Image");
-      imageToolsItem.setMnemonic('I');
+      imageToolsItem.setMnemonic(KeyEvent.VK_S);
       
       imageToolsItem.addActionListener(new OpenToolsListener());
 
       // Create a menu for the items we just created.
       imageMenu = new JMenu("Image");
-      imageMenu.setMnemonic('I');
+      imageMenu.setMnemonic(KeyEvent.VK_I);
 
       // Add the items and some separator bars to the menu.
       imageMenu.add(imageOpenItem);
@@ -977,18 +1023,18 @@ public void applyAnnotation(String value,Color c, int start, int end){
    {
       // Create the New menu item.
       webOpenItem = new JMenuItem("Import Picture from Web");
-      webOpenItem.setMnemonic('I');
+      webOpenItem.setMnemonic(KeyEvent.VK_I);
       webOpenItem.addActionListener(new WebListener());
 
       // Create the Open menu item.
       
       webTextItem = new JMenuItem("Sample Text from Website");
-      webTextItem.setMnemonic('S');
+      webTextItem.setMnemonic(KeyEvent.VK_S);
      webTextItem.addActionListener(new WebListener());
 
       // Create a menu for the items we just created.
       webMenu = new JMenu("Web Imports");
-      webMenu.setMnemonic('W');
+      webMenu.setMnemonic(KeyEvent.VK_W);
 
       // Add the items and some separator bars to the menu.
       webMenu.add(webOpenItem);
@@ -2608,10 +2654,12 @@ private class TextFormatListener implements ActionListener
 		   
 		      // Create the New menu item.
 		      SpellCheck = new JMenuItem("Check Documents Spelling");
+		      SpellCheck.setMnemonic(KeyEvent.VK_C);
 		      SpellCheck.addActionListener(new SpellCheckListener());
 
 		      // Create the underline menu item.
 		      RedUnderline = new JCheckBoxMenuItem("Underline Misspelled Words");
+		      RedUnderline.setMnemonic(KeyEvent.VK_U);
 		      RedUnderline.setSelected(true);		      
 		      RedUnderline.addActionListener(new RedLineListener());
 
