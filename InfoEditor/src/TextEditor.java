@@ -622,9 +622,9 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	   toolBar.add(SIZE);
 	   toolBar.add(SIZEUP);
 	   toolBar.add(COLORCHG);
-	   toolBar.add(ALright);
 	   toolBar.add(ALleft);
 	   toolBar.add(ALcenter);
+	   toolBar.add(ALright);
    }
 
    private void buildViewMenu(){
