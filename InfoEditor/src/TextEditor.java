@@ -1568,7 +1568,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
     		  System.out.println("buffimg="+buffImg);
     		  Subimages test = new Subimages(buffImg);
     	        JFrame f = new JFrame();
-    	        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     	        f.getContentPane().add(new JScrollPane(test));
     	        f.setSize(400,400);
     	        f.setLocation(200,200);
