@@ -2198,7 +2198,8 @@ private class TextFormatListener implements ActionListener
         	 StyleContext sc = StyleContext.getDefaultStyleContext();
         	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
-        	 editorText.replaceSelection("\t" + editorText.getSelectedText());
+        	 if (!editorText.getSelectedText().equals(null))
+    			 editorText.replaceSelection("\t" + editorText.getSelectedText());
         	 
          }
         	 
@@ -2211,7 +2212,8 @@ private class TextFormatListener implements ActionListener
             	 StyleContext sc = StyleContext.getDefaultStyleContext();
             	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
             	 editorText.setParagraphAttributes(aset, false);
-            	 editorText.replaceSelection("\t" + editorText.getSelectedText());
+            	 if (!editorText.getSelectedText().equals(null))
+            			 editorText.replaceSelection("\t" + editorText.getSelectedText());
         	 
         	 /*StyledDocument doc = editorText.getStyledDocument();
         	 SimpleAttributeSet left = new SimpleAttributeSet();
@@ -2229,7 +2231,8 @@ private class TextFormatListener implements ActionListener
         	 StyleContext sc = StyleContext.getDefaultStyleContext();
         	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
-        	 editorText.replaceSelection("\t" + editorText.getSelectedText());
+        	 if (!editorText.getSelectedText().equals(null))
+        		 editorText.replaceSelection("\t" + editorText.getSelectedText());
         	 
         	 /*StyledDocument doc = editorText.getStyledDocument();
         	 SimpleAttributeSet center = new SimpleAttributeSet();
@@ -2247,7 +2250,8 @@ private class TextFormatListener implements ActionListener
         	 StyleContext sc = StyleContext.getDefaultStyleContext();
         	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
-        	 editorText.replaceSelection("\t" + editorText.getSelectedText());
+        	 if (!editorText.getSelectedText().equals(null))
+        		 editorText.replaceSelection("\t" + editorText.getSelectedText());
         	 
         	 /*StyledDocument doc = editorText.getStyledDocument();
         	 SimpleAttributeSet center = new SimpleAttributeSet();
@@ -2265,7 +2269,8 @@ private class TextFormatListener implements ActionListener
         	 StyleContext sc = StyleContext.getDefaultStyleContext();
         	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
-        	 editorText.replaceSelection("\t" + editorText.getSelectedText());
+        	 if (!editorText.getSelectedText().equals(null))
+        		 editorText.replaceSelection("\t" + editorText.getSelectedText());
         	 
         	 /*StyledDocument doc = editorText.getStyledDocument();
         	 SimpleAttributeSet right = new SimpleAttributeSet();
@@ -2283,7 +2288,8 @@ private class TextFormatListener implements ActionListener
         	 StyleContext sc = StyleContext.getDefaultStyleContext();
         	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
-        	 editorText.replaceSelection("\t" + editorText.getSelectedText());
+        	 if (!editorText.getSelectedText().equals(null))
+        		 editorText.replaceSelection("\t" + editorText.getSelectedText());
         	 
         	 /*StyledDocument doc = editorText.getStyledDocument();
         	 SimpleAttributeSet right = new SimpleAttributeSet();
