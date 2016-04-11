@@ -614,6 +614,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	   
 
 	   
+	   
 
 	   toolBar.add(BOLD);
 	   toolBar.add(ITALIC);
