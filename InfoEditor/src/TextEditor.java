@@ -257,6 +257,7 @@ public class TextEditor extends JFrame
    private JMenuItem cutItem;
    private JMenuItem pasteItem;
    private JMenuItem copyItem;
+   private JMenuItem wordCount;	
    
    //Theme Menu Items
    private JMenuItem midnightTheme;
@@ -644,7 +645,10 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	      showAnnotations.setSelected(true);
 	      showAnnotations.addActionListener(new TextFormatListener());
 	      
-	      
+	      wordCount = new JMenuItem("Word Count");
+	      wordCount.setMnemonic(KeyEvent.VK_S);
+	      wordCount.addActionListener(new TextFormatListener());
+
 	      //Create Theme menu options
 	      themeMenu = new JMenu("Change Theme");
 	      themeMenu.setMnemonic(KeyEvent.VK_C);
@@ -684,6 +688,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	      // Create a menu for the items we just created.
 	      viewMenu = new JMenu("View");
 	      viewMenu.setMnemonic(KeyEvent.VK_V);
+	      viewMenu.add(wordCount);
 	      viewMenu.add(showLeftList);
 	      viewMenu.add(wordWrap);
 	      viewMenu.add(showAnnotations);
