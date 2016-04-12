@@ -654,7 +654,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	      
 	      wordCount = new JMenuItem("Word Count");
 	      wordCount.setMnemonic(KeyEvent.VK_S);
-	      wordCount.addActionListener(new TextFormatListener());
+	      wordCount.addActionListener(new wordCountPopupListener());
 
 	      //Create Theme menu options
 	      themeMenu = new JMenu("Change Theme");
@@ -1060,7 +1060,14 @@ public void applyAnnotation(String value,Color c, int start, int end){
       the file menu.
    */
    
-  
+   private class wordCountPopupListener implements ActionListener{
+	   public void actionPerformed(ActionEvent e){
+		  
+		  JOptionPane.showMessageDialog(contents, "Word Count: " + "\n" + "Character Count: ");
+		  
+	   }
+   }
+
 
    
    private class WebListener implements ActionListener
