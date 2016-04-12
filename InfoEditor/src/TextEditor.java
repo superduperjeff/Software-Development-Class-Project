@@ -2274,7 +2274,7 @@ private class TextFormatListener implements ActionListener
          if(e.getSource() == rightAlign){
         	 
         	 TabStop[] tab = new TabStop[1];
-        	 tab[0] = new TabStop(editorText.getWidth(), TabStop.ALIGN_RIGHT, TabStop.LEAD_NONE);
+        	 tab[0] = new TabStop(contents.getWidth(), TabStop.ALIGN_RIGHT, TabStop.LEAD_NONE);
         	 TabSet tabset = new TabSet(tab);
         	 
         	 StyleContext sc = StyleContext.getDefaultStyleContext();
@@ -2293,7 +2293,7 @@ private class TextFormatListener implements ActionListener
          	if(e.getSource() == ALright){
         	 
         	 TabStop[] tab = new TabStop[1];
-        	 tab[0] = new TabStop(editorText.getWidth(), TabStop.ALIGN_RIGHT, TabStop.LEAD_NONE);
+        	 tab[0] = new TabStop(contents.getWidth(), TabStop.ALIGN_RIGHT, TabStop.LEAD_NONE);
         	 TabSet tabset = new TabSet(tab);
         	 
         	 StyleContext sc = StyleContext.getDefaultStyleContext();
