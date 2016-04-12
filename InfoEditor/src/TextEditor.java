@@ -14,6 +14,7 @@ import java.awt.MenuBar;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -122,6 +123,8 @@ import java.text.MessageFormat;
 
 
 
+
+
 import javax.xml.transform.Source;
 
 
@@ -177,8 +180,11 @@ import org.w3c.dom.Element;
 
 
 
+
+
 import com.inet.jortho.FileUserDictionary;
 import com.inet.jortho.SpellChecker;
+import com.sun.java.swing.plaf.windows.resources.windows;
 
 /**
    The TextEditor class is a simple text editor.
@@ -2242,7 +2248,6 @@ private class TextFormatListener implements ActionListener
          }
          
          	if(e.getSource() == ALcenter){
-        	 
         	 TabStop[] tab = new TabStop[1];
         	 tab[0] = new TabStop(390, TabStop.ALIGN_CENTER, TabStop.LEAD_NONE);
         	 TabSet tabset = new TabSet(tab);
