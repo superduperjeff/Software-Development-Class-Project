@@ -2213,7 +2213,6 @@ private class TextFormatListener implements ActionListener
         	 TabStop[] tab = new TabStop[1];
         	 tab[0] = new TabStop(0, TabStop.ALIGN_LEFT, TabStop.LEAD_NONE);
         	 TabSet tabset = new TabSet(tab);
-        	 editorText.getWidth()
         	 StyleContext sc = StyleContext.getDefaultStyleContext();
         	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
@@ -2244,7 +2243,7 @@ private class TextFormatListener implements ActionListener
          if(e.getSource() == centerAlign){
         	 
         	 TabStop[] tab = new TabStop[1];
-        	 tab[0] = new TabStop(390, TabStop.ALIGN_CENTER, TabStop.LEAD_NONE);
+        	 tab[0] = new TabStop((contents.getWidth()/2), TabStop.ALIGN_CENTER, TabStop.LEAD_NONE);
         	 TabSet tabset = new TabSet(tab);
         	 
         	 StyleContext sc = StyleContext.getDefaultStyleContext();
@@ -2262,7 +2261,7 @@ private class TextFormatListener implements ActionListener
          
          	if(e.getSource() == ALcenter){
         	 TabStop[] tab = new TabStop[1];
-        	 tab[0] = new TabStop(390, TabStop.ALIGN_CENTER, TabStop.LEAD_NONE);
+        	 tab[0] = new TabStop((contents.getWidth()/2), TabStop.ALIGN_CENTER, TabStop.LEAD_NONE);
         	 TabSet tabset = new TabSet(tab);
         	 
         	 StyleContext sc = StyleContext.getDefaultStyleContext();
