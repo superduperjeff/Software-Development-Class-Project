@@ -1061,21 +1061,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
       is generated when the user selects New from 
       the file menu.
    */
-   
-   private class wordCountPopupListener implements ActionListener{
-	   public wordCountPopupListener(JPanel contents) {
-		// TODO Auto-generated constructor stub
-	}
-
-	public void actionPerformed(ActionEvent e){
-		  
-		  JOptionPane.showMessageDialog(contents, "Word Count: " + "\n" + "Character Count: ");
-		  
-	   }
-   }
-
-
-   
+      
    private class WebListener implements ActionListener
    {
       public void actionPerformed(ActionEvent e)
