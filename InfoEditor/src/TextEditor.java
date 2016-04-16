@@ -14,6 +14,7 @@ import java.awt.MenuBar;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import java.awt.Toolkit;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -125,6 +126,7 @@ import java.text.MessageFormat;
 
 
 
+
 import javax.xml.transform.Source;
 
 
@@ -150,6 +152,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
 
 
 
@@ -657,7 +660,6 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	      wordCountPopupListener popup = new wordCountPopupListener(contents);
 	      wordCount.addActionListener(popup);
 
-
 	      //Create Theme menu options
 	      themeMenu = new JMenu("Change Theme");
 	      themeMenu.setMnemonic(KeyEvent.VK_C);
@@ -724,18 +726,20 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
       // Create the Open menu item.
       openItem = new JMenuItem("Open File");
+      openItem.setAccelerator(KeyStroke.getKeyStroke('O', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));    //help from StackOverflow
       openItem.setMnemonic(KeyEvent.VK_O);
       openItem.addActionListener(new OpenListener());
 
       // Create the Open menu item.
       openList = new JMenuItem("Open Ontology");
+      openList.setAccelerator(KeyStroke.getKeyStroke('O', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
       openList.setMnemonic(KeyEvent.VK_O);
       openList.addActionListener(new OpenListListener());
       
       // Create the Print menu item.
       printItem = new JMenuItem("Print");
+      printItem.setAccelerator(KeyStroke.getKeyStroke('P', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
       printItem.setMnemonic(KeyEvent.VK_P);
-    
       printItem.addActionListener(new PrintListener());
       
       // Create the Save menu item.
@@ -745,11 +749,13 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
       // Create the Save As menu item.
       saveAsItem = new JMenuItem("Save As");
+      saveAsItem.setAccelerator(KeyStroke.getKeyStroke('S', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
       saveAsItem.setMnemonic(KeyEvent.VK_S);
       saveAsItem.addActionListener(new SaveListener());
 
       // Create the Exit menu item.
       exitItem = new JMenuItem("Exit");
+      exitItem.setAccelerator(KeyStroke.getKeyStroke('E', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
       exitItem.setMnemonic(KeyEvent.VK_E);
       exitItem.addActionListener(new ExitListener());
 
