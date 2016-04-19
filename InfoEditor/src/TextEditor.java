@@ -666,7 +666,8 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	      
 	      midnightTheme = new JMenuItem("Midnight");
 	      midnightTheme.setMnemonic(KeyEvent.VK_M);
-	      midnightTheme.addActionListener(new ListListener());
+	      listListener colorTheme = new listListener();
+	      midnightTheme.addActionListener(colorTheme);
 	      
 	      skyTheme  = new JMenuItem("Sky");
 	      skyTheme.setMnemonic(KeyEvent.VK_S);
@@ -758,7 +759,8 @@ public void applyAnnotation(String value,Color c, int start, int end){
       exitItem = new JMenuItem("Exit");
       exitItem.setAccelerator(KeyStroke.getKeyStroke('E', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
       exitItem.setMnemonic(KeyEvent.VK_E);
-      exitItem.addActionListener(new ExitListener());
+      exitListener closeProgram = new exitListener();
+      exitItem.addActionListener(closeProgram);
 
       // Create a menu for the items we just created.
       fileMenu = new JMenu("File");
@@ -2035,19 +2037,6 @@ public void applyAnnotation(String value,Color c, int start, int end){
       }
    }
 
-   /**
-      Private inner class that handles the event that
-      is generated when the user selects Exit from
-      the file menu.
-   */
-
-   private class ExitListener implements ActionListener
-   {
-      public void actionPerformed(ActionEvent e)
-      {
-         System.exit(0);
-      }
-   }
 
    /**
    Private inner class that handles the event that

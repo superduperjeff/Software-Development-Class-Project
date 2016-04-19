@@ -8,7 +8,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
-class ListListener implements ActionListener
+class listListener implements ActionListener
    {
 	private JMenuBar menuBar;
 	private JToolBar toolBar;
@@ -24,7 +24,7 @@ class ListListener implements ActionListener
 	
       public void actionPerformed(ActionEvent e)
       {
-    	  
+    	  System.out.println("Midnight");
     	  
     	  if(e.getSource()==midnightTheme) {
     		Color midnight = new Color(23,17,79);
