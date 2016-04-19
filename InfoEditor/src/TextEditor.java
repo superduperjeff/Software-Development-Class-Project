@@ -744,13 +744,14 @@ public void applyAnnotation(String value,Color c, int start, int end){
       
       // Create the Save menu item.
       saveItem = new JMenuItem("Save");
+      saveItem.setAccelerator(KeyStroke.getKeyStroke('S', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
       saveItem.setMnemonic(KeyEvent.VK_S);
       saveItem.addActionListener(new SaveListener());
 
       // Create the Save As menu item.
       saveAsItem = new JMenuItem("Save As");
-      saveAsItem.setAccelerator(KeyStroke.getKeyStroke('S', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
-      saveAsItem.setMnemonic(KeyEvent.VK_S);
+      saveAsItem.setAccelerator(KeyStroke.getKeyStroke("F12"));
+      saveAsItem.setMnemonic(KeyEvent.VK_F12);
       saveAsItem.addActionListener(new SaveListener());
 
       // Create the Exit menu item.

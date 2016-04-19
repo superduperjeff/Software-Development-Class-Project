@@ -14,6 +14,7 @@ private String name;
 private String word;
 private boolean annotation=false;
 private Element element;
+private int count = 0;
 
 	public OntologyItem(Element _element) {
 		// TODO Auto-generated constructor stub
@@ -25,6 +26,7 @@ private Element element;
 		if(element.attributeValue("annotation")!=null){
 			if(element.attributeValue("annotation").equals("true")){
 				annotation=true;
+			
 			}
 			else{
 				annotation=false;
