@@ -2184,6 +2184,7 @@ private class TextFormatListener implements ActionListener
          }
          if(e.getSource() == size24){
         	 fontSize = 24; 
+         }
          if(e.getSource() == size36){
              fontSize = 36;
           }
@@ -2193,20 +2194,21 @@ private class TextFormatListener implements ActionListener
         if(e.getSource() == size96){
         	 fontSize = 96; 
        }
-         }
-         
-         
+         StyleContext sc = StyleContext.getDefaultStyleContext();
+         AttributeSet aset;
          if(e.getSource() == leftAlign){
         	 
         	 TabStop[] tab = new TabStop[1];
         	 tab[0] = new TabStop(0, TabStop.ALIGN_LEFT, TabStop.LEAD_NONE);
+
         	 TabSet tabset = new TabSet(tab);
-        	 StyleContext sc = StyleContext.getDefaultStyleContext();
-        	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
+        	 //StyleContext sc = StyleContext.getDefaultStyleContext();
+        	 /*AttributeSet*/ aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
         	 if (!editorText.getSelectedText().equals(null))
-    			 editorText.replaceSelection("\t" + editorText.getSelectedText());
-        	 
+
+    			editorText.replaceSelection("\t" + editorText.getSelectedText());
+
          }
         	 
         	 if(e.getSource() == ALleft){
@@ -2215,12 +2217,13 @@ private class TextFormatListener implements ActionListener
             	 tab[0] = new TabStop(0, TabStop.ALIGN_LEFT, TabStop.LEAD_NONE);
             	 TabSet tabset = new TabSet(tab);
             	 
-            	 StyleContext sc = StyleContext.getDefaultStyleContext();
-            	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
+            	// /*StyleContext*/ sc = StyleContext.getDefaultStyleContext();
+            	 /*AttributeSet*/ aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
             	 editorText.setParagraphAttributes(aset, false);
             	 if (!editorText.getSelectedText().equals(null))
-            			 editorText.replaceSelection("\t" + editorText.getSelectedText());
-        	 
+            		 // This sets a tabstop and then tabs to it. Find a way to fix this
+            		editorText.replaceSelection("\t" + editorText.getSelectedText());
+
         	 /*StyledDocument doc = editorText.getStyledDocument();
         	 SimpleAttributeSet left = new SimpleAttributeSet();
         	 StyleConstants.setAlignment(left, StyleConstants.ALIGN_LEFT);
@@ -2234,10 +2237,12 @@ private class TextFormatListener implements ActionListener
         	 tab[0] = new TabStop((contents.getWidth()/2), TabStop.ALIGN_CENTER, TabStop.LEAD_NONE);
         	 TabSet tabset = new TabSet(tab);
         	 
-        	 StyleContext sc = StyleContext.getDefaultStyleContext();
-        	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
+        	// /*StyleContext*/ sc = StyleContext.getDefaultStyleContext();
+        	 /*AttributeSet*/ aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
         	 if (!editorText.getSelectedText().equals(null))
+    		 	 editorText.replaceSelection(editorText.getSelectedText().substring(1));
+
         		 editorText.replaceSelection("\t" + editorText.getSelectedText());
         	 
         	 /*StyledDocument doc = editorText.getStyledDocument();
@@ -2252,8 +2257,8 @@ private class TextFormatListener implements ActionListener
         	 tab[0] = new TabStop((contents.getWidth()/2), TabStop.ALIGN_CENTER, TabStop.LEAD_NONE);
         	 TabSet tabset = new TabSet(tab);
         	 
-        	 StyleContext sc = StyleContext.getDefaultStyleContext();
-        	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
+        	// /*StyleContext*/ sc = StyleContext.getDefaultStyleContext();
+        	 /*AttributeSet*/ aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
         	 if (!editorText.getSelectedText().equals(null))
         		 editorText.replaceSelection("\t" + editorText.getSelectedText());
@@ -2271,8 +2276,8 @@ private class TextFormatListener implements ActionListener
         	 tab[0] = new TabStop(contents.getWidth(), TabStop.ALIGN_RIGHT, TabStop.LEAD_NONE);
         	 TabSet tabset = new TabSet(tab);
         	 
-        	 StyleContext sc = StyleContext.getDefaultStyleContext();
-        	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
+        //	 /*StyleContext*/ sc = StyleContext.getDefaultStyleContext();
+        	 /*AttributeSet*/ aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
         	 if (!editorText.getSelectedText().equals(null))
         		 editorText.replaceSelection("\t" + editorText.getSelectedText());
@@ -2290,8 +2295,8 @@ private class TextFormatListener implements ActionListener
         	 tab[0] = new TabStop(contents.getWidth(), TabStop.ALIGN_RIGHT, TabStop.LEAD_NONE);
         	 TabSet tabset = new TabSet(tab);
         	 
-        	 StyleContext sc = StyleContext.getDefaultStyleContext();
-        	 AttributeSet aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
+        //	 /*StyleContext*/ sc = StyleContext.getDefaultStyleContext();
+        	 /*AttributeSet*/ aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
         	 editorText.setParagraphAttributes(aset, false);
         	 if (!editorText.getSelectedText().equals(null))
         		 editorText.replaceSelection("\t" + editorText.getSelectedText());
