@@ -67,6 +67,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JTree;
+import javax.swing.KeyStroke;
 import javax.swing.SwingWorker;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -127,6 +128,7 @@ import java.text.MessageFormat;
 
 
 
+
 import javax.xml.transform.Source;
 
 
@@ -152,6 +154,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
 
 
 
@@ -387,9 +390,8 @@ this.setPreferredSize(new Dimension(800,800));
       
 
       // Build the menu bar.
-      buildToolBar();
       buildMenuBar();
-      
+      buildToolBar();
       contents.add(toolBar, BorderLayout.PAGE_START);
       
       
@@ -515,11 +517,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
    private void buildMenuBar()
    {
-      
-      // Create the menu bar.
-      menuBar = new JMenuBar();
-      
-   // Build the file and font menus.
+      // Build the file and font menus.
       buildFileMenu();
       buildEditMenu();
       buildFontMenu();
@@ -527,6 +525,9 @@ public void applyAnnotation(String value,Color c, int start, int end){
       buildImageMenu();
       buildWebMenu();
       buildSpellCheckMenu();
+    
+      // Create the menu bar.
+      menuBar = new JMenuBar();
            
       // Add the file and font menus to the menu bar.
       menuBar.add(fileMenu);
@@ -549,8 +550,6 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	   // Create the tool bar.
 	   toolBar = new JToolBar();
 	   toolBar.setLocation(0,0);
-	   
-	
 	   
 	   Icon tableIcon = new ImageIcon("./resources/tableicon.png");
 	   Icon searchIcon = new ImageIcon("./resources/searchicon.png");
@@ -647,8 +646,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	      showLeftList = new JCheckBoxMenuItem("Show Ontology");
 	      showLeftList.setMnemonic(KeyEvent.VK_S);
 	      showLeftList.setSelected(true);
-	      listListener leftList = new listListener(menuBar, toolBar, ontologyPanel, showLeftList);
-	      showLeftList.addActionListener(leftList);
+	      showLeftList.addActionListener(new ListListener());
 	      
 	      wordWrap = new JCheckBoxMenuItem("Word Wrap");
 	      wordWrap.setMnemonic(KeyEvent.VK_W);
@@ -671,33 +669,28 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	      
 	      midnightTheme = new JMenuItem("Midnight");
 	      midnightTheme.setMnemonic(KeyEvent.VK_M);
-	      listListener colorTheme = new listListener(menuBar, toolBar, ontologyPanel, showLeftList);
+	      listListener colorTheme = new listListener();
 	      midnightTheme.addActionListener(colorTheme);
 	      
 	      skyTheme  = new JMenuItem("Sky");
 	      skyTheme.setMnemonic(KeyEvent.VK_S);
-	      listListener colorTheme2 = new listListener(menuBar, toolBar, ontologyPanel, showLeftList);
-	      skyTheme.addActionListener(colorTheme2);
+	      skyTheme.addActionListener(new ListListener());
 	      
 	      greenTheme = new JMenuItem("Spring");
 	      greenTheme.setMnemonic(KeyEvent.VK_S);
-	      listListener colorTheme3 = new listListener(menuBar, toolBar, ontologyPanel, showLeftList);
-	      greenTheme.addActionListener(colorTheme3);
+	      greenTheme.addActionListener(new ListListener());
 	      
 	      fireTheme = new JMenuItem("Fire");
 	      fireTheme.setMnemonic(KeyEvent.VK_F);
-	      listListener colorTheme4 = new listListener(menuBar, toolBar, ontologyPanel, showLeftList);
-	      fireTheme.addActionListener(colorTheme4);
+	      fireTheme.addActionListener(new ListListener());
 
 	      swampTheme = new JMenuItem("Swamp");
 	      swampTheme.setMnemonic(KeyEvent.VK_S);
-	      listListener colorTheme5 = new listListener(menuBar, toolBar, ontologyPanel, showLeftList);
-	      swampTheme.addActionListener(colorTheme5);
+	      swampTheme.addActionListener(new ListListener());
 	      
 	      defaultTheme = new JMenuItem("Default");
 	      defaultTheme.setMnemonic(KeyEvent.VK_D);
-	      listListener colorTheme6 = new listListener(menuBar, toolBar, ontologyPanel, showLeftList);
-	      defaultTheme.addActionListener(colorTheme6);
+	      defaultTheme.addActionListener(new ListListener());
 
 	      
 	      themeMenu.add(midnightTheme);
@@ -709,7 +702,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	      
 	      // Create a menu for the items we just created.
 	      viewMenu = new JMenu("View");
-	      viewMenu.setMnemonic(KeyEvent.VK_V);
+	      viewMenu.setMnemonic('V');
 	      viewMenu.add(wordCount);
 	      viewMenu.add(showLeftList);
 	      viewMenu.add(wordWrap);
@@ -739,8 +732,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
       openItem = new JMenuItem("Open File");
       openItem.setAccelerator(KeyStroke.getKeyStroke('O', Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));    //help from StackOverflow
       openItem.setMnemonic(KeyEvent.VK_O);
-      openListener openFile = new openListener(editorText);
-      openItem.addActionListener(openFile);
+      openItem.addActionListener(new OpenListener());
 
       // Create the Open menu item.
       openList = new JMenuItem("Open Ontology");
@@ -775,8 +767,9 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
       // Create a menu for the items we just created.
       fileMenu = new JMenu("File");
-      fileMenu.setMnemonic(KeyEvent.VK_F);
-
+      fileMenu.setMnemonic('F');
+    
+      
       // Add the items and some separator bars to the menu.
       fileMenu.add(newItem);
       fileMenu.add(newOntology);
@@ -987,7 +980,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
       
       // Create a menu for the items we just created.
       textMenu = new JMenu("Text");
-      textMenu.setMnemonic(KeyEvent.VK_T);
+      textMenu.setMnemonic('T');
 
       // Add the items and some separator bars to the menu.
       textMenu.add(fontItem);
@@ -1010,7 +1003,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
    public void buildEditMenu () {
 
        editMenu = new JMenu("Edit");
-       editMenu.setMnemonic(KeyEvent.VK_E);
+       editMenu.setMnemonic('E');
 
        cutItem = new JMenuItem(new DefaultEditorKit.CutAction());
        cutItem.setText("Cut");
@@ -1044,7 +1037,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
       // Create a menu for the items we just created.
       imageMenu = new JMenu("Image");
-      imageMenu.setMnemonic(KeyEvent.VK_I);
+      imageMenu.setMnemonic('I');
 
       // Add the items and some separator bars to the menu.
       imageMenu.add(imageOpenItem);
@@ -1068,7 +1061,7 @@ public void applyAnnotation(String value,Color c, int start, int end){
 
       // Create a menu for the items we just created.
       webMenu = new JMenu("Web Imports");
-      webMenu.setMnemonic(KeyEvent.VK_W);
+      webMenu.setMnemonic('W');
 
       // Add the items and some separator bars to the menu.
       webMenu.add(webOpenItem);
@@ -1358,12 +1351,174 @@ public void applyAnnotation(String value,Color c, int start, int end){
   	}
    }
    
-  
+   public class OpenListListener implements ActionListener
+   {
+      public void actionPerformed(ActionEvent e)
+      {
+       
+    	  int chooserStatus;
+
+          JFileChooser chooser = null;
+          
+          if(recentDirectory != null) {
+    		  chooser = new JFileChooser(recentDirectory);
+    	  }
+    	  else {
+    		  chooser = new JFileChooser(recentDirectory);
+    	  }
+          
+          chooserStatus = chooser.showOpenDialog(null);
+          if (chooserStatus == JFileChooser.APPROVE_OPTION)
+          {
+             // Get a reference to the selected file.
+             File selectedFile = chooser.getSelectedFile();
+
+             // Get the path of the selected file.
+             filename = selectedFile.getPath();
+
+             // Open the file.
+             if (!openList(filename))
+             {
+                JOptionPane.showMessageDialog(null, 
+                                 "Error reading " +
+                                 filename, "Error",
+                                 JOptionPane.ERROR_MESSAGE);
+             }
+             
+             recentDirectory = chooser.getCurrentDirectory();
+          }
+      }
+ 
+      /**
+         The openFile method opens the file specified by
+         filename and reads its contents into the text
+         area. The method returns true if the file was
+         opened and read successfully, or false if an
+         error occurred.
+         @param filename The name of the file to open.
+      */
+
+      public boolean openList(String filename)
+      
+      {
+         JTreeBuilder tree= new JTreeBuilder();
+         try {
+			leftList = tree.build(filename);
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+			return false;
+		}
+         // Add ontology to ontology panel
+         String treeRoot = leftList.getModel().getRoot().toString(); // String name of the root node
+         openedOntologies.put(treeRoot, filename); // Place the filename into the HashMap 
+         leftList.setAlignmentX(LEFT_ALIGNMENT);
+         leftList.setMinimumSize(new Dimension(200, 200));
+         leftList.setBackground(Color.LIGHT_GRAY);
+         leftList.addMouseListener(new OntologyTreeMouseListener(leftList,TextEditor.this));
+         ontologyPanel.add(leftList);
+         
+       contents.updateUI();
+       return true;
+      }
+   }
    /**
       Private inner class that handles the event that
       is generated when the user selects Open from
       the file menu.
    */
+
+   private class OpenListener implements ActionListener
+   {
+      public void actionPerformed(ActionEvent e)
+      {
+       
+    	  int chooserStatus;
+    	  JFileChooser chooser = new JFileChooser();
+    	  chooser.setCurrentDirectory(new File(System.getProperty("user.home") + "\\Desktop"));
+    	  recentDirectory = chooser.getCurrentDirectory();
+    	  
+    	  if(recentDirectory != null) {
+    		  chooser = new JFileChooser(recentDirectory);
+    	  }
+    	  else {
+    		  chooser = new JFileChooser(recentDirectory);
+    	  }
+         chooserStatus = chooser.showOpenDialog(null);
+         if (chooserStatus == JFileChooser.APPROVE_OPTION)
+         {
+            // Get a reference to the selected file.
+        	
+        	
+            File selectedFile = chooser.getSelectedFile();
+         
+            // Get the path of the selected file.
+            filename = selectedFile.getPath();
+
+            // Open the file.
+            if (!openFile(filename))
+            {
+               JOptionPane.showMessageDialog(null, 
+                                "Error reading " +
+                                filename, "Error",
+                                JOptionPane.ERROR_MESSAGE);
+              
+            }
+            
+            recentDirectory = chooser.getCurrentDirectory();
+            
+            name = filename;
+         }
+      }
+      /**
+         The openFile method opens the file specified by
+         filename and reads its contents into the text
+         area. The method returns true if the file was
+         opened and read successfully, or false if an
+         error occurred.
+         @param filename The name of the file to open.
+      */
+
+      private boolean openFile(String filename)
+      {
+         boolean success;
+         String inputLine, editorString = "";
+         FileReader freader;
+         BufferedReader inputFile;
+
+         try
+         {
+            // Open the file.
+            freader = new FileReader(filename);
+            inputFile = new BufferedReader(freader);
+
+            // Read the file contents into the editor.
+            inputLine = inputFile.readLine();
+            while (inputLine != null)
+            {
+               editorString = editorString +
+                              inputLine + "\n";
+               inputLine = inputFile.readLine();
+            }
+            editorText.setText(editorString);
+
+            // Close the file.
+            inputFile.close();  
+
+            // Indicate that everything went OK.
+            success = true;
+         }
+         catch (IOException e)
+         {
+            // Something went wrong.
+            success = false;
+         }
+
+         // Return our status.
+         return success;
+      }
+   }
 
    //********************************************************************************************************************
    /**
@@ -2510,20 +2665,19 @@ private class TextFormatListener implements ActionListener
 		   
 		   // Create a menu for SpellCheck.
 		      SpellCheckMenu = new JMenu("Spell Check");
-		      SpellCheckMenu.setMnemonic(KeyEvent.VK_S);
+		      SpellCheckMenu.setMnemonic('S');
+		      
 		   
 		      // Create the New menu item.
 		      SpellCheck = new JMenuItem("Check Documents Spelling");
 		      SpellCheck.setMnemonic(KeyEvent.VK_C);
-		      spellCheckListener spellChecking = new spellCheckListener(editorText);
-		      SpellCheck.addActionListener(spellChecking);
-		      
+		      SpellCheck.addActionListener(new SpellCheckListener());
+
 		      // Create the underline menu item.
 		      RedUnderline = new JCheckBoxMenuItem("Underline Misspelled Words");
 		      RedUnderline.setMnemonic(KeyEvent.VK_U);
 		      RedUnderline.setSelected(true);		      
-		      redLineListener underlineRed = new redLineListener(RedUnderline, editorText);
-		      RedUnderline.addActionListener(underlineRed);
+		      RedUnderline.addActionListener(new RedLineListener());
 
 
 		      // Add the items.
