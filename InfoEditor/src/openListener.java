@@ -7,15 +7,19 @@ import java.io.IOException;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextPane;
 
-class OpenListener implements ActionListener
+class openListener implements ActionListener
    {
 	private File recentDirectory = null;
 	String filename;
 	String name;
 	private static JTextPane editorText;
 	
+	public openListener(JTextPane editorText1){
+		editorText = editorText1;
+	}
       public void actionPerformed(ActionEvent e)
       {
        
