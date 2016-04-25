@@ -2296,7 +2296,7 @@ private class TextFormatListener implements ActionListener
         	 
          }
          
-         	if(e.getSource() == ALright){
+         	if(e.getSource() == ALright) {
         	 
         	 TabStop[] tab = new TabStop[1];
         	 tab[0] = new TabStop(contents.getWidth(), TabStop.ALIGN_RIGHT, TabStop.LEAD_NONE);
