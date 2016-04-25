@@ -297,6 +297,7 @@ public class TextEditor extends JFrame
    private JMenuItem leftAlign;
    private JMenuItem centerAlign;
    private JMenuItem rightAlign;
+   private String align;
    
    // The radio button menu items
    private JMenuItem monoItem;
@@ -669,8 +670,8 @@ public void applyAnnotation(String value,Color c, int start, int end){
 	      
 	      midnightTheme = new JMenuItem("Midnight");
 	      midnightTheme.setMnemonic(KeyEvent.VK_M);
-	      listListener colorTheme = new listListener();
-	      midnightTheme.addActionListener(colorTheme);
+	 //     listListener colorTheme = new listListener();
+	   //   midnightTheme.addActionListener(colorTheme);
 	      
 	      skyTheme  = new JMenuItem("Sky");
 	      skyTheme.setMnemonic(KeyEvent.VK_S);
@@ -2201,32 +2202,34 @@ private class TextFormatListener implements ActionListener
          StyleContext sc = StyleContext.getDefaultStyleContext();
          AttributeSet aset;
          if(e.getSource() == leftAlign){
-        	 
-        	 TabStop[] tab = new TabStop[1];
-        	 tab[0] = new TabStop(0, TabStop.ALIGN_LEFT, TabStop.LEAD_NONE);
-
-        	 TabSet tabset = new TabSet(tab);
-        	 //StyleContext sc = StyleContext.getDefaultStyleContext();
-        	 /*AttributeSet*/ aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
-        	 editorText.setParagraphAttributes(aset, false);
-        	 if (!editorText.getSelectedText().equals(null))
-
-    			editorText.replaceSelection("\t" + editorText.getSelectedText());
+        	 align = "left";
+        	 editorText = Alignment.setAlignment(align, editorText);
+//        	 TabStop[] tab = new TabStop[1];
+//        	 tab[0] = new TabStop(0, TabStop.ALIGN_LEFT, TabStop.LEAD_NONE);
+//
+//        	 TabSet tabset = new TabSet(tab);
+//        	 //StyleContext sc = StyleContext.getDefaultStyleContext();
+//        	 /*AttributeSet*/ aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
+//        	 editorText.setParagraphAttributes(aset, false);
+//        	 if (!editorText.getSelectedText().equals(null))
+//
+//    			editorText.replaceSelection("\t" + editorText.getSelectedText());
 
          }
         	 
         	 if(e.getSource() == ALleft){
-            	 
-            	 TabStop[] tab = new TabStop[1];
-            	 tab[0] = new TabStop(0, TabStop.ALIGN_LEFT, TabStop.LEAD_NONE);
-            	 TabSet tabset = new TabSet(tab);
-            	 
-            	// /*StyleContext*/ sc = StyleContext.getDefaultStyleContext();
-            	 /*AttributeSet*/ aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
-            	 editorText.setParagraphAttributes(aset, false);
-            	 if (!editorText.getSelectedText().equals(null))
-            		 // This sets a tabstop and then tabs to it. Find a way to fix this
-            		editorText.replaceSelection("\t" + editorText.getSelectedText());
+            	 align = "left";
+            	 editorText = Alignment.setAlignment(align, editorText);
+//            	 TabStop[] tab = new TabStop[1];
+//            	 tab[0] = new TabStop(0, TabStop.ALIGN_LEFT, TabStop.LEAD_NONE);
+//            	 TabSet tabset = new TabSet(tab);
+//            	 
+//            	// /*StyleContext*/ sc = StyleContext.getDefaultStyleContext();
+//            	 /*AttributeSet*/ aset = sc.addAttribute(SimpleAttributeSet.EMPTY, StyleConstants.TabSet, tabset);
+//            	 editorText.setParagraphAttributes(aset, false);
+//            	 if (!editorText.getSelectedText().equals(null))
+//            		 // This sets a tabstop and then tabs to it. Find a way to fix this
+//            		editorText.replaceSelection("\t" + editorText.getSelectedText());
 
         	 /*StyledDocument doc = editorText.getStyledDocument();
         	 SimpleAttributeSet left = new SimpleAttributeSet();
