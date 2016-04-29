@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTree;
 
-class OpenListListener implements ActionListener
+class openListListener implements ActionListener
    {
 	private File recentDirectory = null;
 	String filename;
@@ -19,6 +19,10 @@ class OpenListListener implements ActionListener
 	HashMap<String, String> openedOntologies;
 	JPanel ontologyPanel;
 	
+public openListListener(){
+		
+	}
+
       public void actionPerformed(ActionEvent e)
       {
        

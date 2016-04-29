@@ -25,7 +25,7 @@ import javax.swing.text.TabSet;
 import javax.swing.text.TabStop;
 import javax.swing.text.Highlighter.HighlightPainter;
 
-class FontListener implements ActionListener
+class fontListener implements ActionListener
    {
 	JPanel contents;
 	   private JButton ALright;

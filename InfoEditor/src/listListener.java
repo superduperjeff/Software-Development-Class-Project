@@ -12,16 +12,19 @@ class listListener implements ActionListener
 {
 	private JMenuBar menuBar;
 	private JToolBar toolBar;
+	JPanel contents;
 	private JCheckBoxMenuItem showLeftList;
 	JPanel ontologyPanel;
 	private Color defaultColor;
 
-	public listListener(JMenuBar menubar1,JToolBar toolBar1 ,JPanel panel, JCheckBoxMenuItem uShowLeftList ) 
+	public listListener(JMenuBar menubar1,JToolBar toolBar1 ,JPanel panel, JCheckBoxMenuItem uShowLeftList, JPanel contents1, JPanel ontologyPanel1 ) 
 	{
 		menuBar = menubar1;
 		toolBar = toolBar1; 
 		ontologyPanel = panel;
 		showLeftList = uShowLeftList;
+		contents = contents1;
+		ontologyPanel = ontologyPanel1;
 	}
 
 	public void actionPerformed(ActionEvent e)
@@ -47,8 +50,8 @@ class listListener implements ActionListener
 				toolBar.getComponent(i).setForeground(Color.WHITE);
 				toolBar.getComponent(i).setBackground(midnight);
 			}
-			//    		contents.revalidate();
-			//    		contents.repaint();
+			   		contents.revalidate();
+			   		contents.repaint();
 		}
 
 		if(e.getActionCommand().equals("Sky")) 
