@@ -1594,7 +1594,7 @@ underlineItem.addActionListener(new StyledEditorKit.UnderlineAction()); //added 
 			try {
 				complete = editorText.print(headerFormat, footerFormat,
 						true, null, null, interactive);
-				message = "Printing " + (complete ? "complete" : "canceled");
+				message = "Printing " + (complete ? "complete" : "canceled.");
 			} catch (PrinterException ex) {
 				message = "Sorry, a printer error occurred";
 			} catch (SecurityException ex) {
@@ -2019,11 +2019,11 @@ underlineItem.addActionListener(new StyledEditorKit.UnderlineAction()); //added 
 
 			if (!saveFile(filename))
 			{
-				JOptionPane.showMessageDialog(null,
-						"Error saving " +
-								filename+" file", 
-								"Error",
-								JOptionPane.ERROR_MESSAGE);
+			//	JOptionPane.showMessageDialog(null,
+			//			"Error saving " +
+			//					filename+" file", 
+			//					"Error",
+			//					JOptionPane.ERROR_MESSAGE);
 			}
 
 			name = filename;
@@ -2142,11 +2142,11 @@ underlineItem.addActionListener(new StyledEditorKit.UnderlineAction()); //added 
 					}
 
 					while(searchMore == true) {
-						int selectedOption = JOptionPane.showOptionDialog(null, "", "Search", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+						int selectedOption = JOptionPane.showOptionDialog(null, "The searched word is highlighted", "Search", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
 						if(selectedOption==JOptionPane.OK_OPTION) {
 
 							if(currentText.substring(endSelect, currentText.length()).contains(searchFor)) {
-								selectedOption = JOptionPane.showOptionDialog(null, "", "Search", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
+								selectedOption = JOptionPane.showOptionDialog(null, "The searched word is highlighted", "Search", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
 								searchMore = true;
 								String restOf = currentText.substring(endSelect, currentText.length());
 								try {
@@ -2170,7 +2170,7 @@ underlineItem.addActionListener(new StyledEditorKit.UnderlineAction()); //added 
 						}
 					}
 				} else {
-					JOptionPane.showMessageDialog(null, searchFor + " was not found!");
+					JOptionPane.showMessageDialog(null, searchFor + " was not found.");
 				}
 			}
 
@@ -2789,11 +2789,11 @@ underlineItem.addActionListener(new StyledEditorKit.UnderlineAction()); //added 
 					SaveListener save = new SaveListener(); 
 					if (!save.saveFile(filename))
 					{
-						JOptionPane.showMessageDialog(null,
-								"Error saving " +
-										filename+" file", 
-										"Error",
-										JOptionPane.ERROR_MESSAGE);
+					//	JOptionPane.showMessageDialog(null,
+					//			"Error saving " +
+					//					filename+" file", 
+					//					"Error",
+					//					JOptionPane.ERROR_MESSAGE);
 					}
 
 
