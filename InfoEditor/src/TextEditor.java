@@ -619,7 +619,7 @@ public class TextEditor extends JFrame
 		// Create the Italic menu item.
 		showLeftList = new JCheckBoxMenuItem("Show Ontology");
 		showLeftList.setMnemonic(KeyEvent.VK_S);
-		showLeftList.setSelected(true);
+		showLeftList.setSelected(false);
 		listListener leftList = new listListener(menuBar, toolBar, ontologyPanel, showLeftList, contents, ontologyPanel);
 		showLeftList.addActionListener(leftList);
 
@@ -634,7 +634,7 @@ public class TextEditor extends JFrame
 
 		showAnnotations = new JCheckBoxMenuItem("Show Annotations");
 		showAnnotations.setMnemonic(KeyEvent.VK_S);
-		showAnnotations.setSelected(true);
+		showAnnotations.setSelected(false);
 		showAnnotations.addActionListener(new TextFormatListener());
 		//textFormatListener showAnnoListener = new textFormatListener();
 		//showAnnotations.addActionListener(showAnnoListener);
@@ -1893,7 +1893,8 @@ underlineItem.addActionListener(new StyledEditorKit.UnderlineAction()); //added 
 
 					Scanner scanner = new Scanner(System.in);
 					String path = JOptionPane.showInputDialog("Open image in separate web page then paste URL here:");
-
+					
+					
 					System.out.println("Get Image from " + path);
 					URL url = new URL(path);
 					BufferedImage image = ImageIO.read(url);
@@ -2182,11 +2183,13 @@ underlineItem.addActionListener(new StyledEditorKit.UnderlineAction()); //added 
 						"Enter amount of columns:", f2
 
 				};
+				
 
-
+				
 				JOptionPane.showConfirmDialog(null, fields, "Create new Table", JOptionPane.OK_CANCEL_OPTION);
 				drawTable(Integer.parseInt(f1.getText()), Integer.parseInt(f2.getText()));
 
+			
 			}
 
 			// Get the current font.
@@ -2721,7 +2724,7 @@ underlineItem.addActionListener(new StyledEditorKit.UnderlineAction()); //added 
 			// Create the underline menu item.
 			RedUnderline = new JCheckBoxMenuItem("Underline Misspelled Words");
 			RedUnderline.setMnemonic(KeyEvent.VK_U);
-			RedUnderline.setSelected(true);		      
+			RedUnderline.setSelected(false);		      
 			RedUnderline.addActionListener(new RedLineListener());
 
 
